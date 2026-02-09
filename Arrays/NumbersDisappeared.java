@@ -15,20 +15,19 @@ public class NumbersDisappeared {
         
     }
     public static List<Integer>  findDisappearedNumbers(int nums[]){
-        int n = nums.length;
-        ArrayList<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        boolean[] seen = new boolean[nums.length + 1];
 
-        // sorting the array
-        Arrays.sort(nums);
-        
-        // Creating a Hashset for storing the unique elements
-        Set<Integer> s = new HashSet<>();
-
-        // storing the unique elements in the set
-        for(int i = 0;i<n;i++){
-            s.add(nums[i]);
+        for(int n : nums){
+            seen[n] = true;
         }
-        System.out.println(s);
+
+        for(int i = 1; i <= nums.length; i++){
+            if(!seen[i]){
+                list.add(i);
+            }
+        }
+
         return list;
     }
 }
