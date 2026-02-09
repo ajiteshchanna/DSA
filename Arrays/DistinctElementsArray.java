@@ -24,10 +24,6 @@ public class DistinctElementsArray {
             }
         }
 
-        if(set.size()==nums.length){
-            return true;
-        } else{
-            return false;
-        }
+        return set.size() == nums.length;
     }
 }
