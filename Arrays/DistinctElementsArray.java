@@ -22,8 +22,7 @@ public class DistinctElementsArray {
             if(set.contains(nums[i])){
                 set.add(nums[i]);
             }
-        }
-
+        }                                             
         return set.size() == nums.length;
     }
 }
