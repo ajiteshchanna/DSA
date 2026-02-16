@@ -6,11 +6,11 @@ public class SubArraySum {
         System.out.println();
     }
     public static void main(String[] args) {
-        int nums[] = {1,-2,6,-1,3};
+        int nums[] = {-9,-3,-2,-6,-4,0};
         // System.out.println(maxSubArraySum(nums));
         // System.out.println(minSubArraySum(nums));
 
-        int res = prefixSumTechnique(nums);
+        int res = kadaneAlgorithm(nums);
         System.out.println("Max Sum: " + res);
     }
 
@@ -95,5 +95,45 @@ public class SubArraySum {
             
         }
         return maxSum;
+    }
+
+    public static int kadaneAlgorithm(int nums[]){
+        /*
+            Here, this is a O(n) algorithm, ek loop ka use krte hai, and we maintain two variables, currentSum (cs) and 
+            maxSum (ms). If current sum <0, we put it to 0, because for a normal array the max sum should be >=0, until and unless
+            we have an array with all the elements negative... for this we have a special case
+        */
+
+        // special negative case
+        boolean isNonNegative = false;
+        for(int i = 0;i<nums.length;i++){
+            if(nums[i]>=0){
+                isNonNegative = true;
+                break;
+            }
+        }
+        if(isNonNegative == false){
+            int maxEl = Integer.MIN_VALUE;
+            for(int i = 0;i<nums.length;i++){
+                maxEl = Math.max(maxEl, nums[i]);
+            }
+
+            return maxEl;
+        } else{
+            // normal array case
+            int cs = 0;
+            int ms = Integer.MIN_VALUE;
+
+            for(int i=0;i<nums.length;i++){
+                cs = cs + nums[i];
+                if(cs<0){
+                    cs = 0;
+                }
+                ms = Math.max(cs, ms);
+            }
+
+            return ms;
+
+        }
     }
 }
