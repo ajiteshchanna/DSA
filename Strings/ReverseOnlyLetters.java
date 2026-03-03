@@ -28,6 +28,7 @@ public class ReverseOnlyLetters {
             char a = s.charAt(i);
             char b = s.charAt(j);
 
+            // using ascii values
             boolean aLetter = (a>=65 && a<=90) || (a>=97 && a<=122);
             boolean bLetter = (b>=65 && b<=90) || (b>=97 && b<=122);
 
@@ -37,6 +38,7 @@ public class ReverseOnlyLetters {
                 arr[i] = Character.toString(b);
                 arr[j] = Character.toString(a);
 
+                // update pointers
                 i++;
                 j--;
             } else if(aLetter && !bLetter){
@@ -52,10 +54,9 @@ public class ReverseOnlyLetters {
             }
         }
 
-        printArr(arr);
         StringBuilder sb = new StringBuilder("");
-        for(int k=0;k<arr.length;k++){
-            sb.append(arr[k]);
+        for (String arr1 : arr) {
+            sb.append(arr1);
         }
 
         return sb.toString();
