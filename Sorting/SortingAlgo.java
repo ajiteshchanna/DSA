@@ -6,10 +6,9 @@ public class SortingAlgo {
         System.out.println();
     }
     public static void main(String []args){
-        int nums[] = {8,9,3,1,10,4,6};
+        int nums[] = {1,4,1,3,2,4,3,7};
         printArray(nums);
-        bubbleSort(nums);
-        printArray(nums);
+        countSort(nums);
     }
 
     // logic behind bubble sort: largest ko end par bhejo
@@ -44,5 +43,32 @@ public class SortingAlgo {
             nums[minPos] = nums[i];
             nums[i] = temp;
         }
+    }
+
+
+    public static void countSort(int arr[]){
+        int max = 0;
+        
+        for(int i = 0;i<arr.length;i++){
+            max = Math.max(arr[i], max);
+        }
+
+        int freq[] = new int[max+1];
+
+        for(int i = 0; i<arr.length;i++){
+            freq[arr[i]]++;
+        }
+
+        printArray(freq);
+
+        int k = 0;
+        for(int i = 0;i<freq.length;i++){
+            for(int j = 0;j<freq[i];j++){
+                arr[k] = i;
+                k++;
+            }
+        }
+
+        printArray(arr);
     }
 }
