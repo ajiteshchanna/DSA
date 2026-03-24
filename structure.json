@@ -1,0 +1,48 @@
+{
+  "name": "uber-data-analysis-project",
+  "type": "folder",
+  "children": [
+    {
+      "name": "data",
+      "type": "folder",
+      "children": [
+        {
+          "name": "raw_data",
+          "type": "folder"
+        },
+        {
+          "name": "cleaned_data",
+          "type": "folder"
+        }
+      ]
+    },
+    {
+      "name": "notebooks",
+      "type": "folder",
+      "children": [
+        {
+          "name": "uber_eda.ipynb",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "dashboards",
+      "type": "folder",
+      "children": [
+        {
+          "name": "powerbi_dashboard.pbix",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "images",
+      "type": "folder"
+    },
+    {
+      "name": "README.md",
+      "type": "file"
+    }
+  ]
+}
